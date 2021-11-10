@@ -14,6 +14,7 @@ class JsonUtility
         $products = [];
         foreach ($productsJson as $product) {
             switch($product['type']) {
+                
                 case "cd":
                     $cdproduct = new \awe\CdProduct($product['id'],$product['title'], $product['firstname'],
                         $product['mainname'],$product['price'], $product['playlength']);
@@ -23,6 +24,11 @@ class JsonUtility
                     $bookproduct = new \awe\BookProduct($product['id'],$product['title'], $product['firstname'],
                         $product['mainname'],$product['price'], $product['numpages']);
                     $products[]=$bookproduct;
+                    break;
+                    case "game":
+                    $gameproduct = new \awe\GameProduct($product['id'],$product['title'], $product['firstname'],
+                        $product['mainname'],$product['price'], $product['pegi']);
+                    $products[] = $gameproduct;
                     break;
             }
         }
@@ -72,6 +78,7 @@ class JsonUtility
 
         if($producttype=='cd') $newProduct['playlength'] = $pages;
         if($producttype=='book') $newProduct['numpages'] = $pages;
+        if($producttype=='game')$newProduct['pegi'] = $pages;
 
         $products[] = $newProduct;
 

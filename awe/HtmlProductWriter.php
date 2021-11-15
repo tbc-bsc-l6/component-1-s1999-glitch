@@ -121,6 +121,9 @@ class HtmlProductWriter extends ShopProductWriter
     {
         $contents = '';
         foreach ($gameproducts as $game) {
+//var_dump($game);
+//die();
+
             $contents .= '<tr>
                   <td>'.$game->getFullName().'</td>'
                 .'<td>'.$game->getTitle().'</td>'

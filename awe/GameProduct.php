@@ -28,7 +28,7 @@ class GameProduct extends ShopProduct
         $this->pegi = $pegi;
     }
 
-    public function getNumberOfPages()
+    public function getPegi()
     {
         return $this->pegi;
     }
